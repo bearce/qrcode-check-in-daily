@@ -1,0 +1,42 @@
+{
+  "guest": [
+    {
+      "id": "1584435617641",
+      "firstname": "Dương Đức",
+      "lastname": "Trọng",
+      "created": "2020-03-17T09:00:17.640Z"
+    },
+    {
+      "id": "1584435617642",
+      "firstname": "Nguyễn Trung",
+      "lastname": "Kiên",
+      "created": "2020-03-17T09:00:17.640Z"
+    },
+    {
+      "id": "1584435617643",
+      "firstname": "Hào Trúc",
+      "lastname": "Lâm",
+      "created": "2020-03-17T09:00:17.640Z"
+    },
+    {
+      "id": "1584435617644",
+      "firstname": "Trương Văn",
+      "lastname": "Hải",
+      "created": "2020-03-17T09:00:17.640Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "1584435617640",
+      "guestId": "1584435617641",
+      "status": "IN",
+      "created": "2020-03-17T09:00:17.640Z"
+    },
+    {
+      "id": "1584435643830",
+      "status": "IN",
+      "created": "2020-03-17T09:00:43.830Z",
+      "guestId": "1584435617643"
+    }
+  ]
+}

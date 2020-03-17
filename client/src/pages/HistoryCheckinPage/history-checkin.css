@@ -1,0 +1,11 @@
+.history-checkin {
+    margin-top: 30px;
+}
+
+.history-checkin__title {
+    text-align: center;
+}
+
+.history-checkin__alert {
+    margin-bottom: 5px!important;
+}
