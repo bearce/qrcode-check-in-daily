@@ -40,7 +40,7 @@ class MenuInterface extends React.Component {
         <Menu.Item key="list-user">
           <AppstoreOutlined />
           <NavLink to="/list-user">
-            LIST USER
+            GET QRCODE OF USER
           </NavLink>
         </Menu.Item>
       </Menu>
