@@ -2,8 +2,8 @@ import React from 'react';
 import QrReader from 'react-qr-reader'
 import { message, Spin, Typography  } from 'antd';
 import { getGuestAPI, check_IN_OUT_API } from '../http_request';
-import './QRCodeScannerPage.css';
 import LayoutMedium from '../../components/Layout/LayoutMedium/LayoutMedium';
+import './qrcode-scanner-page.css';
 
 class QRCodeScannerPage extends React.Component {
 
