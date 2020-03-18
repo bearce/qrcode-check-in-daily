@@ -22,7 +22,7 @@ export const columns = [
         dataIndex: 'qrCode',
         key: 'qrCode',
         render: qrCode => (
-            <Button type="primary" onClick={qrCode["onFunc"]}>TAKE CODE</Button>
+            <Button type="primary" onClick={qrCode["onFunc"]}>GET QRCODE</Button>
         )
     }
 ]

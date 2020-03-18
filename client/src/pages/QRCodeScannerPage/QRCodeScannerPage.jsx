@@ -33,12 +33,13 @@ class QRCodeScannerPage extends React.Component {
             .then(({data}) => {
                 const { status, code } = data;
 
-                //3.2.A.2 Ghi danh thành công
+                // Status -> OK
                 if(status !== "error" && status === "ok") {
                     message.success(`${data.message} : [CHECK${data.history.status}]`);
                     this.handleReset();
                 }
                 else {
+                // Status -> FAIL
                     message.error(`${data.message}`); // 3.2.A.2 Ghi danh thất bại
                     this.setState({
                         loading: false
@@ -52,7 +53,7 @@ class QRCodeScannerPage extends React.Component {
         })
     }
 
-    // 3.0 Kiểm tra người dùng QRCODE có tồn tại hay không ?
+    // 3.0 Kiểm tra mã QRCODE của người dùng
     checkGuest = () => {
         let { result } = this.state;
         
@@ -62,21 +63,22 @@ class QRCodeScannerPage extends React.Component {
         .then(({data}) => {
             const { status, code } = data;
 
-            //3.2.A Kiểm tra thành công -> Người dùng tồn tại -> Yêu cầu ghi danh
+            // Status -> OK
             if(status !== "error" && status === "ok") {
-                message.success("Đang tiến hành CHECK IN/CHECK OUT"); // Thông báo hoàn tiến hành CHECKIN
+                message.success("Đang tiến hành CHECK IN/CHECK OUT");
                 this.checkINOUT(result); //Callback
 
-            } //3.2.B Kiểm tra thất bại -> Người dùng không tồn tại.
+            }
             else {
+            // Status -> FAIL
                 message.error(`${status} ${code}: ${data.message}`) // Thông báo lỗi
-                this.handleReset();
+                this.handleReset(); //Reset reader QRCODE
             }
         })
-        .catch(err => { //3.2~ Yêu cầu gửi lên có lỗi, người dùng không tồn tại
+        .catch(err => {
             const { code, status } = err;
-            message.error(`${status} ${code}: ${err.message}`)
-            this.handleReset();
+            message.error(`${status} ${code}: ${err.message}`) // Thông báo lỗi
+            this.handleReset(); // Reset Reader QRCODE
         })
     }
 

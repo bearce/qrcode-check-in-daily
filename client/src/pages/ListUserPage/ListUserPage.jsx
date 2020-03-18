@@ -22,9 +22,11 @@ class ListUserPage extends React.Component {
         this.setState({loading: true}, () => {
             getGuestsAPI()
             .then(({data}) => {
-                let { guests, message, status, code } = data;
-
+                
+                let { guests, status, code } = data;
+                // Status -> OK
                 if(status !== "error" && status === "ok") {
+                    //Thêm field: Key : String , qrCode : Function
                     guests = guests.map(guest => {
                         return {
                             ...guest,
@@ -34,13 +36,18 @@ class ListUserPage extends React.Component {
                             }
                         }
                     })
+
                     this.setState({
                         loading: false,
                         guests
                     })
                 }
                 else {
-                    
+                // Status -> FAIL
+                    message.error(data.message);
+                    this.setState({
+                        loading: false
+                    })
                 }
             })
             .catch(err => {
@@ -55,7 +62,6 @@ class ListUserPage extends React.Component {
 
     render() {
         const { guests, getQRCode, idUser } = this.state;
-        console.log(getQRCode, idUser)
         return (
             <div style={{marginTop: "20px"}}>
                 {
